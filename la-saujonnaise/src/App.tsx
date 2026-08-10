@@ -3,9 +3,10 @@
 import React, { useState } from "react";
 import {
   ArrowDownRight, ArrowRight, Clock3,
-  MapPin, Menu, Phone, Sparkles, Star, X
+  MapPin, Phone, Sparkles, Star
 } from "lucide-react";
 import { motion } from "framer-motion";
+import Header from "./component/header";
 import './index.css'
 
 type ImgMap = {
@@ -37,32 +38,11 @@ const App: React.FC = () => {
 
   return (
     <div className="overflow-x-hidden bg-[#f5f0e8] text-[#27231f]">
-      <header className="fixed inset-x-0 top-0 z-50">
-        <div className="mx-auto mt-3 flex max-w-7xl items-center justify-between rounded-full border border-white/15 bg-[#211e1a]/85 px-4 py-3 text-white shadow-2xl backdrop-blur-xl md:px-6">
-          <a href="#top" className="font-display text-xl tracking-tight">La Saujonnaise<span className="text-[#e5a07c]">.</span></a>
-          <nav className="hidden items-center gap-7 text-sm text-white/75 md:flex">
-            <a href="#maison" className="transition hover:text-white">La maison</a>
-            <a href="#carte" className="transition hover:text-white">La carte</a>
-            <a href="#galerie" className="transition hover:text-white">Galerie</a>
-            <a href="#contact" className="transition hover:text-white">Infos pratiques</a>
-          </nav>
-          <div className="flex items-center gap-2">
-            <a href="tel:+33546054855" className="hidden rounded-full bg-[#f4e8d7] px-4 py-2 text-sm font-semibold text-[#27231f] transition hover:scale-[1.03] sm:block">Réserver</a>
-            <button type="button" onClick={() => setOpen(!open)} className="rounded-full p-2 md:hidden" aria-label="Menu">
-              {open ? <X size={21} /> : <Menu size={21} />}
-            </button>
-          </div>
-        </div>
-        {open && (
-          <div className="mx-3 mt-2 rounded-3xl bg-[#211e1a] p-5 text-white shadow-2xl md:hidden">
-            {['La maison', 'La carte', 'Galerie', 'Infos pratiques'].map((x, i) => (
-              <a key={x} href={["#maison", "#carte", "#galerie", "#contact"][i]} onClick={() => setOpen(false)}
-                className="block border-b border-white/10 py-4 text-lg last:border-0">{x}</a>
-            ))}
-            <a href="tel:+33546054855" className="mt-3 flex items-center justify-center gap-2 rounded-full bg-[#e2a17c] py-3 font-semibold text-[#211e1a]"><Phone size={17} /> Appeler</a>
-          </div>
-        )}
-      </header>
+      <Header
+        open={open}
+        onToggle={() => setOpen((prev) => !prev)}
+        onClose={() => setOpen(false)}
+      />
 
       <main id="top">
         <section className="relative min-h-[92vh] overflow-hidden bg-[#211e1a] text-white">
