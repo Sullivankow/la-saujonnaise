@@ -2,9 +2,9 @@
 import { Menu, Phone, X } from "lucide-react";
 
 type HeaderProps = {
-    open: boolean;
-    onToggle: () => void;
-    onClose: () => void;
+    readonly open: boolean;
+    readonly onToggle: () => void;
+    readonly onClose: () => void;
 };
 
 // Fixed top bar with the main navigation and the mobile drawer.
