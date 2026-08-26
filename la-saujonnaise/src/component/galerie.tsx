@@ -14,7 +14,7 @@ const Galerie: React.FC<GalerieProps> = ({ pizzaImg, dishImg, dessertImg, terrac
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 flex items-end justify-between">
           <div><p className="mb-4 text-xs font-bold uppercase tracking-[.25em] text-[#b94f2e]">En images</p><h2 className="font-display text-5xl md:text-6xl">À voir. À goûter.</h2></div>
-          <a href="https://instagram.com/" className="hidden items-center gap-2 text-sm font-semibold md:flex">
+          <a href="https://www.instagram.com/la_saujonnaise/" className="hidden items-center gap-2 text-sm font-semibold md:flex">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="inline-block"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="3"></circle><circle cx="17.5" cy="6.5" r="0.5"></circle></svg>
             Instagram
           </a>

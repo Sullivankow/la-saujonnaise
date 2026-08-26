@@ -11,18 +11,20 @@ type AboutUsProps = {
 const AboutUs: React.FC<AboutUsProps> = ({ dishes }) => {
     return (
         <section id="maison" className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
-            <div className="grid gap-14 lg:grid-cols-[.9fr_1.1fr] lg:items-end">
-                <div>
+            <div className="grid gap-14 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+                <div className="lg:pt-4">
                     <p className="mb-5 text-xs font-bold uppercase tracking-[.25em] text-[#b94f2e]">Notre cuisine</p>
                     <h2 className="font-display text-5xl leading-[.98] tracking-[-.035em] md:text-7xl">Plus qu'une<br /><i>pizzeria.</i></h2>
                 </div>
-                <div className="max-w-xl">
+                <div className="max-w-xl lg:pt-8">
                     <p className="text-xl leading-8 text-[#554d45] md:text-2xl">
-                        Ici, la pizza partage la table avec une cuisine généreuse et sans chichi.
-                        Des produits bien choisis, des recettes maison et l'envie de vous recevoir comme à la maison.
+                        Plus qu’une pizzeria : on vous propose des pizzas à pâte fine faite maison,
+                        cuites au feu de bois jusqu’à la perfection, dans une ambiance chaleureuse et conviviale.
+                        Une cuisine généreuse, des produits choisis avec soin et une vraie table de quartier,
+                        où chaque recette garde le goût de la maison.
                     </p>
                     <div className="mt-8 flex flex-wrap gap-2">
-                        {['Feu de bois', 'Fait maison', 'Terrasse', 'Produits locaux'].map(t => (
+                        {['Pâte fine maison', 'Feu de bois', 'Cuisine conviviale', 'Produits choisis'].map(t => (
                             <span key={t} className="rounded-full border border-[#d8cbbb] px-4 py-2 text-sm">{t}</span>
                         ))}
                     </div>

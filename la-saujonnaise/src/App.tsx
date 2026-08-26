@@ -10,6 +10,7 @@ import AboutUs from "./component/aboutUs";
 import Experience from "./component/experience";
 import Carte from "./component/carte";
 import Galerie from "./component/galerie";
+import Reviews from "./component/reviews";
 import Contact from "./component/contact";
 import Footer from "./component/footer";
 import './index.css'
@@ -55,6 +56,7 @@ const App: React.FC = () => {
         <Experience terraceImg={img.terrace} />
         <Carte />
         <Galerie pizzaImg={img.pizza} dishImg={img.dish} dessertImg={img.dessert} terraceImg={img.terrace} />
+        <Reviews />
         <Contact />
       </main>
 

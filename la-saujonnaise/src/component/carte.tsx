@@ -9,7 +9,13 @@ const Carte: React.FC = () => {
           <p className="mb-5 text-xs font-bold uppercase tracking-[.25em] text-[#b94f2e]">À table</p>
           <h2 className="font-display text-5xl tracking-[-.035em] md:text-7xl">La carte</h2>
         </div>
-        <a href="/menu.pdf" className="inline-flex items-center gap-2 font-semibold underline decoration-[#c98a6b] underline-offset-8">Télécharger la carte <ArrowRight size={17} /></a>
+        <a
+          href="/Carte_La_Saujonnaise.pdf"
+          download
+          className="inline-flex items-center gap-2 font-semibold underline decoration-[#c98a6b] underline-offset-8"
+        >
+          Télécharger la carte <ArrowRight size={17} />
+        </a>
       </div>
 
       <div className="mt-12 grid gap-10 md:grid-cols-2">
