@@ -20,8 +20,8 @@ const Carte: React.FC = () => {
 
       <div className="mt-12 grid gap-10 md:grid-cols-2">
         {[
-          ["Pizzas au feu de bois", [["Margherita", "tomate, mozzarella, basilic", "12 €"], ["Reine", "jambon, champignons, mozzarella", "14 €"], ["4 Fromages", "sélection de fromages, mozzarella", "15 €"], ["La Saujonnaise", "suggestion maison", "17 €"]]],
-          ["À la carte", [["Plat du moment", "selon l'inspiration du chef", "—"], ["Salade généreuse", "produits frais & saison", "—"], ["Menu enfant", "selon disponibilités", "—"], ["Dessert maison", "demandez la suggestion", "—"]]]
+          ["Pizzas maison", [["La Saujonnaise", "crème, fromage, jambon de pays, œuf, persillade", "14,00 €"], ["La Montagnarde", "crème, fromage, jambon de pays, chèvre, miel, origan", "15,00 €"], ["La Poirée", "ail & fines herbes, fromage, PDT, magret, gorgonzola, crème, poire & figues", "15,00 €"], ["L'Orientale", "poivrons, champignons, fromage, poulet, merguez, crème, épices", "15,00 €"]]],
+          ["Classiques", [["Margarita", "tomate, fromage, basilic", "10,00 €"], ["Reine", "tomate, fromage, jambon, champignons, olives", "13,00 €"], ["4 Fromages", "tomate, emmental, mozzarella, chèvre, gorgonzola", "13,00 €"], ["Tex-Mex", "tomate, fromage, oignons, viande hachée, poivrons, épices", "14,00 €"], ["Charentaise", "tomate, fromage, jambon de pays, champignons, crème, persillade", "14,00 €"]]]
         ].map(([title, rows]) => (
           <div key={String(title)} className="rounded-[2rem] border border-[#d9cebf] bg-[#eee6db] p-7 md:p-9">
             <div className="flex items-center justify-between border-b border-[#d1c4b5] pb-5">
@@ -31,7 +31,7 @@ const Carte: React.FC = () => {
               {((rows as unknown) as [string, string, string][]).map(([name, desc, price]) => (
                 <div key={name} className="flex gap-4 border-b border-[#d1c4b5] py-5 last:border-0">
                   <div className="min-w-0 flex-1"><p className="font-semibold">{name}</p><p className="mt-1 text-sm text-[#746a61]">{desc}</p></div>
-                  <span className="font-semibold">{price}</span>
+                  <span className="shrink-0 font-semibold">{price}</span>
                 </div>
               ))}
             </div>

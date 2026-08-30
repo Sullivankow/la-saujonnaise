@@ -24,11 +24,11 @@ type ImgMap = {
 }
 
 const img: ImgMap = {
-  hero: "https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=1800&q=85",
+  hero: "/terrasse.jpeg",
   pizza: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1100&q=85",
   dish: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1100&q=85",
   dessert: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1000&q=85",
-  terrace: "https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1400&q=85",
+  terrace: "/menu.jpeg",
 };
 
 type Dish = { title: string; text: string; image: string; tag: string };

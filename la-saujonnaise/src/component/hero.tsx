@@ -8,7 +8,12 @@ type HeroProps = {
 const Hero: React.FC<HeroProps> = ({ img }) => {
     return (
         <section className="relative min-h-[92vh] overflow-hidden bg-[#211e1a] text-white">
-            <img src={img} alt="" className="absolute inset-0 h-full w-full object-cover opacity-55" />
+            <img
+                src={img}
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover opacity-55"
+                style={{ transform: "scale(1.08)", transformOrigin: "center center", objectPosition: "center 35%" }}
+            />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(25,22,19,.55),rgba(25,22,19,.15)_45%,rgba(25,22,19,.88))]" />
             <div className="relative mx-auto flex min-h-[92vh] max-w-7xl items-end px-5 pb-12 pt-32 md:px-8 md:pb-20">
                 <div className="max-w-4xl">

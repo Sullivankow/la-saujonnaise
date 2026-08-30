@@ -26,7 +26,13 @@ const Experience: React.FC<ExperienceProps> = ({ terraceImg }) => {
           <div className="absolute -left-5 -top-5 z-10 hidden rounded-full bg-[#e2a17c] p-5 text-center text-xs font-bold uppercase tracking-widest text-[#211e1a] sm:block">
             <span className="block text-2xl leading-none">17</span> Saujon
           </div>
-          <img src={terraceImg} alt="Terrasse du restaurant" loading="lazy" className="aspect-[4/5] w-full rounded-[2.5rem] object-cover md:aspect-[4/4.5]" />
+          <img
+            src={terraceImg}
+            alt="Terrasse du restaurant"
+            loading="lazy"
+            className="aspect-[4/5] w-full rounded-[2.5rem] object-cover md:aspect-[4/4.5]"
+            style={{ transform: "scale(0.96)", transformOrigin: "center center", objectPosition: "center 90%" }}
+          />
         </div>
       </div>
     </section>
