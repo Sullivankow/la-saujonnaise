@@ -13,6 +13,7 @@ import Galerie from "./component/galerie";
 import Reviews from "./component/reviews";
 import Contact from "./component/contact";
 import Footer from "./component/footer";
+import LegalPage from "./component/legal";
 import './index.css'
 
 type ImgMap = {
@@ -41,6 +42,16 @@ const dishes: Dish[] = [
 
 const App: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);
+  const [showLegal, setShowLegal] = useState<boolean>(false);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleGoHome = () => {
+    setShowLegal(false);
+    scrollToTop();
+  };
 
   return (
     <div className="overflow-x-hidden bg-[#f5f0e8] text-[#27231f]">
@@ -50,23 +61,36 @@ const App: React.FC = () => {
         onClose={() => setOpen(false)}
       />
 
-      <main id="top">
-        <Hero img={img.hero} />
-        <AboutUs dishes={dishes} />
-        <Experience terraceImg={img.terrace} />
-        <Carte />
-        <Galerie pizzaImg={img.pizza} dishImg={img.dish} dessertImg={img.dessert} terraceImg={img.terrace} />
-        <Reviews />
-        <Contact />
-      </main>
+      {showLegal ? (
+        <LegalPage onBackHome={handleGoHome} />
+      ) : (
+        <>
+          <main id="top">
+            <Hero img={img.hero} />
+            <AboutUs dishes={dishes} />
+            <Experience terraceImg={img.terrace} />
+            <Carte />
+            <Galerie pizzaImg={img.pizza} dishImg={img.dish} dessertImg={img.dessert} terraceImg={img.terrace} />
+            <Reviews />
+            <Contact />
+          </main>
 
-      <Footer />
+          <Footer onLegalClick={() => {
+            setShowLegal(true);
+            scrollToTop();
+          }} />
+        </>
+      )}
 
-      <div className="fixed inset-x-3 bottom-3 z-40 grid grid-cols-3 rounded-2xl border border-white/10 bg-[#211e1a]/95 p-1.5 text-white shadow-2xl backdrop-blur-xl md:hidden">
-        <a href="#carte" className="flex flex-col items-center gap-0.5 rounded-xl py-2 text-[10px] font-semibold"><span className="text-base">☷</span> Carte</a>
-        <a href="tel:+33546054855" className="flex flex-col items-center gap-0.5 rounded-xl bg-[#e2a17c] py-2 text-[10px] font-semibold text-[#211e1a]"><Phone size={16} /> Appeler</a>
-        <a href="https://maps.google.com/?q=19+rue+de+la+Seudre+17600+Saujon" className="flex flex-col items-center gap-0.5 rounded-xl py-2 text-[10px] font-semibold"><MapPin size={16} /> Itinéraire</a>
-      </div>
+      {!showLegal && (
+        <div className="fixed inset-x-3 bottom-3 z-40 grid grid-cols-3 rounded-2xl border border-white/10 bg-[#211e1a]/95 p-1.5 text-white shadow-2xl backdrop-blur-xl md:hidden">
+          <a href="#carte" className="flex flex-col items-center gap-0.5 rounded-xl py-2 text-[10px] font-semibold"><span className="text-base">☷</span> Carte</a>
+          <a href="tel:+33546054855" className="flex flex-col items-center gap-0.5 rounded-xl bg-[#e2a17c] py-2 text-[10px] font-semibold text-[#211e1a]"><Phone size={16} /> Appeler</a>
+          <a href="https://maps.google.com/?q=19+rue+de+la+Seudre+17600+Saujon" className="flex flex-col items-center gap-0.5 rounded-xl py-2 text-[10px] font-semibold"><MapPin size={16} /> Itinéraire</a>
+        </div>
+      )}
+
+      {showLegal && <Footer onLegalClick={() => { }} />}
     </div>
   );
 }
