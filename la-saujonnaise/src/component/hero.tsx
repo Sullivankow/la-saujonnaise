@@ -11,6 +11,10 @@ const Hero: React.FC<HeroProps> = ({ img }) => {
             <img
                 src={img}
                 alt=""
+                width={1542}
+                height={2048}
+                fetchPriority="high"
+                decoding="async"
                 className="absolute inset-0 h-full w-full object-cover opacity-55"
                 style={{ transform: "scale(1.08)", transformOrigin: "center center", objectPosition: "center 35%" }}
             />

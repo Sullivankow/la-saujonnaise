@@ -1,6 +1,5 @@
 
 import React from "react";
-import { motion } from "framer-motion";
 
 type Dish = { title: string; text: string; image: string; tag: string };
 
@@ -32,8 +31,8 @@ const AboutUs: React.FC<AboutUsProps> = ({ dishes }) => {
             </div>
 
             <div className="mt-20 grid gap-5 md:grid-cols-3">
-                {dishes.map((d, i) => (
-                    <motion.article key={d.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .08 }}
+                {dishes.map((d) => (
+                    <article key={d.title}
                         className="group overflow-hidden rounded-[2rem] bg-[#e9e0d4]">
                         <div className="relative aspect-[4/3] overflow-hidden">
                             <img src={d.image} alt={d.title} loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
@@ -43,7 +42,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ dishes }) => {
                             <h3 className="font-display text-2xl">{d.title}</h3>
                             <p className="mt-2 leading-6 text-[#6a625a]">{d.text}</p>
                         </div>
-                    </motion.article>
+                    </article>
                 ))}
             </div>
         </section>

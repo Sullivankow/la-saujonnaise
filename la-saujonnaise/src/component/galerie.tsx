@@ -20,10 +20,10 @@ const Galerie: React.FC<GalerieProps> = ({ pizzaImg, dishImg, dessertImg, terrac
           </a>
         </div>
         <div className="grid auto-rows-[220px] grid-cols-2 gap-3 md:auto-rows-[260px] md:grid-cols-4">
-          <img src={pizzaImg} alt="Pizza" className="col-span-2 row-span-2 h-full w-full rounded-[1.5rem] object-cover" loading="lazy" />
-          <img src={dishImg} alt="Plat maison" className="h-full w-full rounded-[1.5rem] object-cover" loading="lazy" />
-          <img src={dessertImg} alt="Dessert" className="h-full w-full rounded-[1.5rem] object-cover" loading="lazy" />
-          <img src={terraceImg} alt="Terrasse" className="col-span-2 h-full w-full rounded-[1.5rem] object-cover" loading="lazy" />
+          <img src={pizzaImg} alt="Pizza au feu de bois de La Saujonnaise à Saujon" className="col-span-2 row-span-2 h-full w-full rounded-[1.5rem] object-cover" loading="lazy" decoding="async" />
+          <img src={dishImg} alt="Plat de cuisine maison servi à La Saujonnaise" className="h-full w-full rounded-[1.5rem] object-cover" loading="lazy" decoding="async" />
+          <img src={dessertImg} alt="Dessert gourmand préparé par La Saujonnaise" className="h-full w-full rounded-[1.5rem] object-cover" loading="lazy" decoding="async" />
+          <img src={terraceImg} alt="Terrasse du restaurant La Saujonnaise à Saujon" className="col-span-2 h-full w-full rounded-[1.5rem] object-cover" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>

@@ -11,6 +11,7 @@
 
 html { scroll-behavior: smooth; }
 body { margin: 0; min-width: 320px; }
+img { max-width: 100%; }
 ::selection { background: #b94f2e; color: #fff; }
 
 .font-display { font-family: "Playfair Display", serif; }
@@ -21,3 +22,8 @@ body { margin: 0; min-width: 320px; }
   50% { transform: translateY(-7px) rotate(-1deg); }
 }
 .float { animation: float 4s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

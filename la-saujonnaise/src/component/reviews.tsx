@@ -1,8 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Reviews: React.FC = () => {
+    const sectionRef = useRef<HTMLElement>(null);
+    const [shouldLoadWidget, setShouldLoadWidget] = useState(false);
+
     useEffect(() => {
-        if (typeof window === "undefined") return;
+        const section = sectionRef.current;
+        if (!section || typeof IntersectionObserver === "undefined") {
+            setShouldLoadWidget(true);
+            return;
+        }
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setShouldLoadWidget(true);
+                    observer.disconnect();
+                }
+            },
+            { rootMargin: "300px 0px" },
+        );
+
+        observer.observe(section);
+        return () => observer.disconnect();
+    }, []);
+
+    useEffect(() => {
+        if (!shouldLoadWidget) return;
 
         const scriptId = "elfsight-platform-script";
         const existingScript = document.getElementById(scriptId) as HTMLScriptElement | null;
@@ -15,10 +39,10 @@ const Reviews: React.FC = () => {
             script.defer = true;
             document.body.appendChild(script);
         }
-    }, []);
+    }, [shouldLoadWidget]);
 
     return (
-        <section id="avis" className="border-t border-[#d8cbbb] bg-[#f5f0e8]">
+        <section ref={sectionRef} id="avis" className="border-t border-[#d8cbbb] bg-[#f5f0e8]">
             <div className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
                 <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
                     <div>
@@ -31,10 +55,14 @@ const Reviews: React.FC = () => {
                 </div>
 
                 <div className="overflow-hidden rounded-[2rem] border border-[#d8cbbb] bg-white/30 p-2 md:p-4">
-                    <div
-                        className="elfsight-app-cf5b0f30-0f30-45b5-8cd9-d3e40d476357"
-                        data-elfsight-app-lazy
-                    />
+                    {shouldLoadWidget ? (
+                        <div
+                            className="elfsight-app-cf5b0f30-0f30-45b5-8cd9-d3e40d476357"
+                            data-elfsight-app-lazy
+                        />
+                    ) : (
+                        <div className="min-h-40" aria-hidden="true" />
+                    )}
                 </div>
             </div>
         </section>

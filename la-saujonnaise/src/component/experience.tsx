@@ -30,6 +30,7 @@ const Experience: React.FC<ExperienceProps> = ({ terraceImg }) => {
             src={terraceImg}
             alt="Terrasse du restaurant"
             loading="lazy"
+            decoding="async"
             className="aspect-[4/5] w-full rounded-[2.5rem] object-cover md:aspect-[4/4.5]"
             style={{ transform: "scale(0.96)", transformOrigin: "center center", objectPosition: "center 90%" }}
           />
