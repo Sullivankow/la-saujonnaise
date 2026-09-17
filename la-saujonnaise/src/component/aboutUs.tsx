@@ -30,7 +30,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ dishes }) => {
                 </div>
             </div>
 
-            <div className="mt-20 grid gap-5 md:grid-cols-3">
+            <div className="mt-20 grid gap-5 md:grid-cols-4">
                 {dishes.map((d) => (
                     <article key={d.title}
                         className="group overflow-hidden rounded-[2rem] bg-[#e9e0d4]">

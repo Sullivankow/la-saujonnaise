@@ -22,22 +22,25 @@ type ImgMap = {
   dish: string;
   dessert: string;
   terrace: string;
+  gallery: string[];
 }
 
 const img: ImgMap = {
   hero: "/terrasse.jpeg",
-  pizza: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1100&q=85",
-  dish: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1100&q=85",
-  dessert: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1000&q=85",
+  pizza: "/s8.jpeg",
+  dish: "/four.jpeg",
+  dessert: "/s4.jpeg",
   terrace: "/menu.jpeg",
+  gallery: Array.from({ length: 8 }, (_, index) => `/s${index + 1}.jpeg`),
 };
 
 type Dish = { title: string; text: string; image: string; tag: string };
 
 const dishes: Dish[] = [
-  { title: "Pizza au feu de bois", text: "Pâte maison, cuisson au feu de bois et garnitures généreuses.", image: img.pizza, tag: "Signature" },
-  { title: "Cuisine maison", text: "Des assiettes généreuses inspirées de la cuisine traditionnelle.", image: img.dish, tag: "Maison" },
-  { title: "Desserts gourmands", text: "Une note sucrée pour terminer le repas avec douceur.", image: img.dessert, tag: "Gourmand" },
+  { title: "Pizza gourmande", text: "Une pâte fine et des garnitures généreuses, préparées avec soin.", image: img.pizza, tag: "Signature" },
+  { title: "Le four à bois", text: "La flamme et la chaleur du four donnent à chaque pizza son goût unique.", image: img.dish, tag: "Feu de bois" },
+  { title: "Notre salle", text: "Une adresse chaleureuse et conviviale pour partager un bon moment.", image: img.dessert, tag: "Ambiance" },
+  { title: "La terrasse sur la Seudre", text: "Profitez d'un repas au bord de la Seudre, dans un cadre paisible et chaleureux.", image: img.hero, tag: "Au bord de l'eau" },
 ];
 
 const App: React.FC = () => {
@@ -70,7 +73,7 @@ const App: React.FC = () => {
             <AboutUs dishes={dishes} />
             <Experience terraceImg={img.terrace} />
             <Carte />
-            <Galerie pizzaImg={img.pizza} dishImg={img.dish} dessertImg={img.dessert} terraceImg={img.terrace} />
+            <Galerie images={img.gallery} />
             <Reviews />
             <Contact />
           </main>
