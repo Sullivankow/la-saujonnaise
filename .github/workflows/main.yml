@@ -20,8 +20,8 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: ftp.cluster100.hosting.ovh.net
-        username: lescley
+        server: ftp.cluster129.hosting.ovh.net
+        username: lasaujx
         password: ${{ secrets.ftp_password }}
         exclude: |
           **/.git*
