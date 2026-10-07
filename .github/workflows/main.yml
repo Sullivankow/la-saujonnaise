@@ -1,39 +1,36 @@
 on: push
 name: 🚀 Deploy website on push
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./la-saujonnaise
-    steps:
-      - name: 🚚 Get latest code
-        uses: actions/checkout@v4
+    web-deploy:
+        name: 🎉 Deploy
+        runs-on: ubuntu-latest
+        steps:
+            - name: 🚚 Get latest code
+              uses: actions/checkout@v4
 
-      - name: 📂 Install dependencies
-        uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-          cache: npm
-          cache-dependency-path: la-saujonnaise/package-lock.json
+            - name: 📂 Install dependencies
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "22"
+                  cache: npm
+                  cache-dependency-path: package-lock.json
 
-      - name: 📂 Install npm dependencies
-        run: npm ci
+            - name: 📂 Install npm dependencies
+              run: npm ci
 
-      - name: 🏗️ Build website
-        run: npm run build
+            - name: 🏗️ Build website
+              run: npm run build
 
-      - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ftp.cluster129.hosting.ovh.net
-          username: lasaujx
-          password: ${{ secrets.ftp_password }}
-          local-dir: ./la-saujonnaise/dist/
-          exclude: |
-            **/.git*
-            **/.git*/**
-          server-dir: www/
-          protocol: ftp
-          port: 21
+            - name: 📂 Sync files
+              uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+              with:
+                  server: ftp.cluster129.hosting.ovh.net
+                  username: lasaujx
+                  password: ${{ secrets.ftp_password }}
+                  local-dir: ./dist/
+                  exclude: |
+                      **/.git*
+                      **/.git*/**
+                  server-dir: www/
+                  protocol: ftp
+                  port: 21
