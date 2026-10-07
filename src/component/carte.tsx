@@ -8,14 +8,14 @@ const Carte: React.FC = () => {
         <div>
           <p className="mb-5 text-xs font-bold uppercase tracking-[.25em] text-[#b94f2e]">À table</p>
           <h2 className="font-display text-5xl tracking-[-.035em] md:text-7xl">La carte</h2>
-          <p className="mt-3 max-w-xl text-sm text-[#746a61]">La sélection de pizzas présentée ici n’est pas complète. Consultez la carte complète en la téléchargeant.</p>
+          <p className="mt-3 max-w-xl text-sm text-[#746a61]">La carte présentée ici n’est pas complète. Téléchargez le PDF pour consulter la carte complète.</p>
         </div>
         <a
           href="/Carte_La_Saujonnaise.pdf"
           download
           className="inline-flex items-center gap-2 font-semibold underline decoration-[#c98a6b] underline-offset-8"
         >
-          Télécharger la carte <ArrowRight size={17} />
+          Télécharger la carte complète <ArrowRight size={17} />
         </a>
       </div>
 
