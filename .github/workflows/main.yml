@@ -4,6 +4,9 @@ jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./la-saujonnaise
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
@@ -13,6 +16,7 @@ jobs:
         with:
           node-version: "22"
           cache: npm
+          cache-dependency-path: la-saujonnaise/package-lock.json
 
       - name: 📂 Install npm dependencies
         run: npm ci
@@ -26,14 +30,10 @@ jobs:
           server: ftp.cluster129.hosting.ovh.net
           username: lasaujx
           password: ${{ secrets.ftp_password }}
-          local-dir: ./dist/
+          local-dir: ./la-saujonnaise/dist/
           exclude: |
             **/.git*
             **/.git*/**
           server-dir: /www/
           protocol: ftp
           port: 21
-
-
-
-
