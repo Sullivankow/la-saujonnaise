@@ -5,8 +5,8 @@ import { Clock3, MapPin, Phone, MessageCircle } from "lucide-react";
 const Contact: React.FC = () => {
   const schedule = [
     ['Lundi', 'Fermé'],
-    ['Mardi', '12:00–14:00, 19:00–21:00'],
-    ['Mercredi', '12:00–14:00, 19:00–21:00'],
+    ['Mardi', 'Fermé'],
+    ['Mercredi', 'Fermé'],
     ['Jeudi', '12:00–14:00, 19:00–21:00'],
     ['Vendredi', '12:00–14:00, 19:00–21:00'],
     ['Samedi', '12:00–14:00, 19:00–21:00'],

@@ -8,6 +8,7 @@ const Carte: React.FC = () => {
         <div>
           <p className="mb-5 text-xs font-bold uppercase tracking-[.25em] text-[#b94f2e]">À table</p>
           <h2 className="font-display text-5xl tracking-[-.035em] md:text-7xl">La carte</h2>
+          <p className="mt-3 max-w-xl text-sm text-[#746a61]">La sélection de pizzas présentée ici n’est pas complète. Consultez la carte complète en la téléchargeant.</p>
         </div>
         <a
           href="/Carte_La_Saujonnaise.pdf"
