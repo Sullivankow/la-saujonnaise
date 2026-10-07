@@ -31,6 +31,6 @@ jobs:
                   exclude: |
                       **/.git*
                       **/.git*/**
-                  server-dir: www/
+                  server-dir: /www/
                   protocol: ftp
                   port: 21
